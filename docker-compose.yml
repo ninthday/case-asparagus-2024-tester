@@ -1,0 +1,20 @@
+services:
+
+  db:
+    image: mariadb:11.4
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: beehive
+      MYSQL_USER: tester
+      MYSQL_PASSWORD: beehive
+      MYSQL_DATABASE: asparagus
+    volumes:
+      - ./mariadb:/var/lib/mysql
+    ports:
+      - 3306:3306
+
+  adminer:
+    image: adminer:latest
+    restart: always
+    ports:
+      - 8080:8080
